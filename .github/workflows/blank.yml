@@ -32,6 +32,7 @@ jobs:
   deploy-dev:
     runs-on: ubuntu-latest
     environment: dev
+    needs: build
     steps:
       - name: Say Hello
         run: echo Hello, dev!
@@ -39,6 +40,7 @@ jobs:
   deploy-test:
     runs-on: ubuntu-latest
     environment: test
+    needs: deploy-dev
     steps:
       - name: Say Hello
         run: echo Hello, test!
